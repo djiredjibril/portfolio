@@ -92,7 +92,7 @@ export default function Home() {
           );
         })}
 
-        {otherProjects.length > 0 && (
+        {/* {otherProjects.length > 0 && (
           <section className="col" aria-labelledby="more">
             <h2 id="more">{copy.otherTitle}</h2>
             <ul className="other">
@@ -113,7 +113,7 @@ export default function Home() {
               ))}
             </ul>
           </section>
-        )}
+        )} */}
 
         <section className="col" aria-labelledby="path">
           <h2 id="path">{copy.experienceTitle}</h2>
