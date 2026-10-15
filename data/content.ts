@@ -1,14 +1,46 @@
 // Edit this file only: all the text of the site lives here.
 export const profile = {
   name: "Djibril Djiré",
-  title: "Frontend Engineer",
-  headline: "Frontend engineer. My apps have been downloaded 100K+ times.",
+  title: "Software Engineer & Frontend",
   intro:
     "I build React, Next.js and React Native interfaces with designers and backend engineers. Nearly 5 years of professional experience, based in Lomé, working with teams in Mali.",
   email: "djibrilpendadjire@gmail.com",
   phone: "+228 79 09 80 80",
   linkedin: "https://www.linkedin.com/in/djibril-djir%C3%A9-025554245/",
   cv: "/cv.pdf", // put your exported CV in /public/cv.pdf
+};
+
+// SEO: used for the page title, meta description, Open Graph and Twitter cards.
+export const seo = {
+  title: `${profile.name}, ${profile.title}`,
+  description:
+    "Portfolio of Djibril Djiré, Software Engineer & Frontend: React, Next.js, TypeScript and React Native case studies, experience and CV.",
+};
+
+// Short UI copy: navigation, hero lines, section titles and footer labels.
+// NOTE: hero.typed is revealed one character at a time in app/globals.scss.
+// If you change its length, update `steps(...)` there to match so it still
+// looks like typing (the reveal itself adapts to any length).
+export const copy = {
+  nav: { home: "Home", work: "Work", contact: "Contact" },
+  hero: {
+    hello: "Hello! I am",
+    name: "Djibril",
+    headline: "Software Engineer & Frontend whose app passed 100K downloads",
+    typed: "I'm a Software Engineer & Frontend.",
+    location: "Currently at Kabakoo, in Lomé.",
+  },
+  workTitle: "Work",
+  featuredTag: "Featured project",
+  otherTitle: "Other projects",
+  otherLink: "View project",
+  experienceTitle: "Experience and education",
+  contact: {
+    title: "Contact",
+    cta: "Have a role or a project in mind? Let's connect.",
+    linkedin: "LinkedIn",
+    cv: "Download CV",
+  },
 };
 
 export const skills = [
