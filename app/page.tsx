@@ -96,8 +96,8 @@ export default function Home() {
           <section className="col" aria-labelledby="more">
             <h2 id="more">{copy.otherTitle}</h2>
             <ul className="other">
-              {otherProjects.map((o) => (
-                <li key={o.name} className="other-item">
+              {otherProjects.map((o, i) => (
+                <li key={`${o.name}-${i}`} className="other-item">
                   <div className="other-head">
                     <h3>{o.name}</h3>
                     {o.link && (
