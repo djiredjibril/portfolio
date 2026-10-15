@@ -19,6 +19,20 @@ export const skills = [
   { group: "Backend", items: "REST APIs, Node.js, PHP, Laravel" },
 ];
 
+// Projects. The first two entries are the "featured" projects rendered with
+// phone screenshots.
+//
+// HOW TO ADD SCREENSHOTS
+// 1. Export portrait phone screenshots (a 9:19.5 ratio fits the phone frames
+//    best, e.g. 450x975 px) and drop the files into /public.
+// 2. List their public paths in the `screens` array of the matching project,
+//    in the order you want them shown (left to right).
+// 3. Up to 3 screens are shown per featured project; extra entries are ignored.
+//    With 1 or 2 screens the frames stay centered and balanced.
+// 4. A project without `screens` shows three empty placeholder frames.
+//
+// Example:
+//   screens: ["/kabakoo-1.png", "/kabakoo-2.png", "/kabakoo-3.png"],
 export const projects = [
   {
     name: "Kabakoo App",

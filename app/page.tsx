@@ -1,9 +1,23 @@
+import Image from "next/image";
 import { profile, projects, tech, openTo, experience } from "@/data/content";
+
+type Project = {
+  name: string;
+  stack: string;
+  summary: string;
+  role: string;
+  screens?: string[];
+};
 
 const Mark = () => <span className="mark" aria-hidden="true">DD</span>;
 
+// Phone-frame screenshots: portrait 9:19.5 frames, up to 3 per featured project.
+const MAX_SCREENS = 3;
+const PHONE_W = 450;
+const PHONE_H = 975;
+
 export default function Home() {
-  const featured = projects.slice(0, 2);
+  const featured = (projects as Project[]).slice(0, 2);
   return (
     <>
       <nav className="nav">
@@ -46,23 +60,37 @@ export default function Home() {
           <ul className="chips">{tech.map((t) => <li key={t}>{t}</li>)}</ul>
         </section>
 
-        {featured.map((p, i) => (
-          <section key={p.name} className={`col feature glow ${i % 2 ? "flip" : ""}`}>
-            <div className="shots">
-              {((p as { screens?: string[] }).screens?.length ? (p as { screens?: string[] }).screens! : [null, null, null]).map((src, k) => (
-                <div key={k} className="phone">
-                  {src ? <img src={src} alt={`${p.name} screen ${k + 1}`} loading="lazy" /> : <span>Screenshot {k + 1}</span>}
-                </div>
-              ))}
-            </div>
-            <div className="text">
-              <p className="tag">Featured project</p>
-              <h3>{p.name}</h3>
-              <p className="glass">{p.summary} {p.role}</p>
-              <span className="pill">{p.stack}</span>
-            </div>
-          </section>
-        ))}
+        {featured.map((p, i) => {
+          const screens = (p.screens ?? []).slice(0, MAX_SCREENS);
+          const slots: (string | null)[] = screens.length ? screens : [null, null, null];
+          return (
+            <section key={p.name} className={`col feature glow ${i % 2 ? "flip" : ""}`}>
+              <div className={`shots n${slots.length}`}>
+                {slots.map((src, k) => (
+                  <div key={k} className="phone">
+                    {src ? (
+                      <Image
+                        src={src}
+                        alt={`${p.name} app screenshot ${k + 1}`}
+                        width={PHONE_W}
+                        height={PHONE_H}
+                        sizes="152px"
+                      />
+                    ) : (
+                      <span>Screenshot {k + 1}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="text">
+                <p className="tag">Featured project</p>
+                <h3>{p.name}</h3>
+                <p className="glass">{p.summary} {p.role}</p>
+                <span className="pill">{p.stack}</span>
+              </div>
+            </section>
+          );
+        })}
 
         <section className="col" aria-labelledby="path">
           <h2 id="path">Experience and education</h2>
