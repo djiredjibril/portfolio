@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { profile, projects, tech, openTo, experience } from "@/data/content";
+import { profile, projects, otherProjects, tech, openTo, experience } from "@/data/content";
 
 type Project = {
   name: string;
@@ -91,6 +91,29 @@ export default function Home() {
             </section>
           );
         })}
+
+        {otherProjects.length > 0 && (
+          <section className="col" aria-labelledby="more">
+            <h2 id="more">Other projects</h2>
+            <ul className="other">
+              {otherProjects.map((o) => (
+                <li key={o.name} className="other-item">
+                  <div className="other-head">
+                    <h3>{o.name}</h3>
+                    {o.link && (
+                      <a className="other-link" href={o.link} target="_blank" rel="noopener noreferrer">View project</a>
+                    )}
+                  </div>
+                  <p>{o.summary}</p>
+                  <div className="other-meta">
+                    <span className="pill">{o.stack}</span>
+                    <span className="other-role">{o.role}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="col" aria-labelledby="path">
           <h2 id="path">Experience and education</h2>

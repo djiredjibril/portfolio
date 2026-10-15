@@ -65,6 +65,27 @@ export const projects = [
   },
 ];
 
+// Other projects: the compact list shown after the featured projects.
+// - `link` is optional: put a live URL or repository, or leave it as "" to hide the link.
+// - Empty this whole array (otherProjects = []) to hide the "Other projects" section.
+// TODO: replace both placeholders below with two real projects (or clear the array).
+export const otherProjects = [
+  {
+    name: "TODO: project name",
+    summary: "TODO: one-line summary of what this project does.",
+    role: "TODO: what you did on it.",
+    stack: "TODO: tech used",
+    link: "", // TODO: add a URL, or leave empty to hide the link
+  },
+  {
+    name: "TODO: project name",
+    summary: "TODO: one-line summary of what this project does.",
+    role: "TODO: what you did on it.",
+    stack: "TODO: tech used",
+    link: "",
+  },
+];
+
 export const experience = [
   { role: "Frontend Developer, Kabakoo", period: "January 2022 to present", text: "React Native apps in production, REST API integration, releases." },
   { role: "Web Development Trainer, Kabakoo", period: "2023 to present", text: "Teaching HTML, CSS, JavaScript, React and PHP." },
